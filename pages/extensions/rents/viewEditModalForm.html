@@ -1,0 +1,114 @@
+<form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="viewEditRentModalForm">
+  
+  <div class="w-100 d-flex align-items-start justify-content-start gap-2 flex-nowrap overflow-auto">
+    <div class="w-100">
+      <div class="w-100">
+        <a href="#payments" data-payment-type="rent" class="text-decoration-none btn btn-outline-primary w-100" id="viewEditRentModalViewPayments">View Payments</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-100" id="viewEditRentModalLikeToDoDiv">
+    <label class="form-label text-uppercase fw-semibold">What would you like to do?</label>
+    <select class="form-select" required id="viewEditRentModalLikeToDo">
+      <option value=""></option>
+      <option value="Ongoing">Update</option>
+      <option value="On Break">Mark as On Break</option>
+      <option value="Unpaid">Set as Unpaid</option>
+      <option value="Completed">Mark as Complete</option>
+    </select>
+  </div>
+
+  <section class="d-flex align-items-center justify-content-start gap-2 flex-column w-100 d-none" id="viewEditRentModalFields">
+
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Rent Code</label>
+      <input type="text" class="form-control" disabled id="viewEditRentModalRentCode" value="Please wait...">
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Status</label>
+      <div class="d-flex align-items-center justify-content-start gap-2">
+        <span class="badge" id="viewEditRentModalStatus">Please wait...</span>
+      </div>
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Boarder Name</label>
+      <a href="#boarders" class="btn btn-outline-secondary w-100" id="viewEditRentModalBoarderName">Please wait...</a>
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Belongings</label>
+      <div class="d-flex align-items-center justify-content-start gap-2 flex-wrap" id="viewEditRentModalBelongings">Please wait...</div>
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Room</label>
+      <select class="form-select" required id="viewEditRentModalRoom"></select>
+      <div id="viewEditRentModalRoomBedsLeft" class="mt-2 d-flex align-items-center justify-content-start gap-1 flex-wrap">
+        <div class="d-flex align-items-center justify-content-center" id="viewEditRentModalRoomLowerBedsLeft">Please wait...</div>
+        <div class="d-flex align-items-center justify-content-center" id="viewEditRentModalRoomUpperBedsLeft">Please wait...</div>
+      </div>
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Bed Level</label>
+      <select class="form-select" required id="viewEditRentModalBedLevel"></select>
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Rent Type</label>
+      <div class="d-flex align-items-center justify-content-start gap-2">
+        <div>
+          <input type="radio" checked value="Regular" class="form-check-input" name="viewEditRentModalRentType[]" id="viewEditRentModalRentTypeRegular"><label for="viewEditRentModalRentTypeRegular" class="form-label">Regular</label>
+        </div>
+        <div>
+          <input type="radio" value="Transient" class="form-check-input" name="viewEditRentModalRentType[]" id="viewEditRentModalRentTypeTransient"><label for="viewEditRentModalRentTypeTransient" class="form-label">Transient</label>
+        </div>
+      </div>
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold mb-0">Discount (%)</label>
+      <p class="opacity-75 mb-0 p-1">Enter the discount percentage to reduce the boarder’s rent amount. This does not include water bills, electric bills, or late fees.</p>
+      <select class="form-select" required id="viewEditRentModalDiscount">
+        <option value="0">0</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Check-in Date/Time</label>
+      <input type="text" class="form-control" value="Please wait..." disabled id="viewEditRentModalCheckIn">
+    </div>
+    <div class="w-100 d-none" id="viewEditRentModalCheckOutDiv">
+      <label class="form-label text-uppercase fw-semibold">Check-out Date/Time</label>
+      <input type="datetime-local" class="form-control" id="viewEditRentModalCheckOut">
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+      <textarea class="form-control" id="viewEditRentModalNotes" maxlength="500"></textarea>
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Last Modified</label>
+      <input type="text" class="form-control" value="Please wait..." disabled id="viewEditRentModalLastModified">
+    </div>
+    <div class="w-100">
+      <label class="form-label text-uppercase fw-semibold">Date Created</label>
+      <input type="text" class="form-control" value="Please wait..." disabled id="viewEditRentModalDateCreated">
+    </div>
+    <div class="w-100">
+      <div class="alert alert-warning" role="alert" id="viewEditRentModalAlert">
+        <span class="fw-bold">Please read: </span><br>
+        <span>Update to belongings, rent type, or discount will take effect after next payment.</span><br>
+        <span class="text">After this action, you can update the fields at any time.</span>
+      </div>
+
+      <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="viewEditRentModalUpdate">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Update</span>
+      </button>
+    </div>
+
+  </section>
+
+</form>

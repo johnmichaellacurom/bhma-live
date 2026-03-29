@@ -1,0 +1,242 @@
+<section>
+  
+  <header class="d-flex align-items-center justify-content-between gap-2 flex-wrap py-2">
+    <h1 class="mb-0" style="cursor: pointer;" id="boardersContentRefresh">
+      <div class="d-flex align-items-center justify-content-start gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>Boarders
+      </div>
+    </h1>
+    
+    <div class="d-flex align-items-center justify-content-start gap-2 flex-wrap">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#filtersBoarderModal" id="filtersBoarderModalOpen">Filters</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBoarderModal" id="addBoarderModalOpen">New</button>
+    </div>
+  </header>
+
+  <div class="w-100 overflow-auto">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>STATUS</th>
+          <th>FIRST NAME</th>
+          <th>MIDDLE NAME</th>
+          <th>LAST NAME</th>
+          <th>SUFFIX</th>
+          <th>NICKNAME</th>
+          <th>BIRTH DATE</th>
+          <th>AGE</th>
+          <th>SEX</th>
+          <th>ADDRESS</th>
+          <th>MOBILE NO.</th>
+          <th>FACEBOOK ACC.</th>
+          <th>NOTES</th>
+          <th>LAST MODIFIED</th>
+          <th>DATE CREATED</th>
+        </tr>
+      </thead>
+      <tbody id="tableBoarders">
+        <tr>
+          <td colspan="15">Please wait...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center gap-2 flex-column">
+    <aside class="d-flex align-items-center justify-content-between gap-2 flex-wrap w-100">
+      <p class="mb-0" id="showingEntriesBoarders">Showing 1-10 of 0 entries</p>
+      <p class="mb-0" id="pageBoarders">Page 1 of 1</p>
+    </aside>
+    <aside class="w-100 d-flex align-items-center justify-content-center gap-2 flex-wrap">
+      <button type="button" id="prevPageBoarders" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Prev Page</span>
+      </button>
+      <button type="button" id="nextPageBoarders" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Next Page</span>
+      </button>
+    </aside>
+  </div>
+</section>
+
+<!-- Add Modal  -->
+<div class="modal fade" id="addBoarderModal" tabindex="-1" aria-labelledby="addBoarderModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addBoarderModalLabel">New Boarder</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="addBoarderModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="addBoarderModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="addBoarderModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Active" class="form-check-input add-boarder-modal-status" name="addBoarderModalStatus[]" id="addBoarderModalStatusActive"><label for="addBoarderModalStatusActive" class="form-label">Active</label>
+              </div>
+              <div>
+                <input type="radio" value="Inactive" class="form-check-input add-boarder-modal-status" name="addBoarderModalStatus[]" id="addBoarderModalStatusInactive"><label for="addBoarderModalStatusInactive" class="form-label">Inactive</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">First Name</label>
+            <input type="text" class="form-control" required id="addBoarderModalFirstName" maxlength="50">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Middle Name (optional)</label>
+            <input type="text" class="form-control" id="addBoarderModalMiddleName" maxlength="50">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Last Name</label>
+            <input type="text" class="form-control" required id="addBoarderModalLastName" maxlength="50">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Suffix (optional)</label>
+            <select class="form-select" id="addBoarderModalSuffix">
+              <option value=""></option>
+              <option value="Jr.">Jr.</option>
+              <option value="Sr.">Sr.</option>
+              <option value="I">I</option>
+              <option value="II">II</option>
+              <option value="III">III</option>
+              <option value="IV">IV</option>
+              <option value="V">V</option>
+              <option value="VI">VI</option>
+              <option value="VII">VII</option>
+              <option value="VIII">VIII</option>
+              <option value="IX">IX</option>
+              <option value="X">X</option>
+            </select>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Nick Name</label>
+            <input type="text" class="form-control" required id="addBoarderModalNickName" maxlength="50">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Birth Date (optional)</label>
+            <input type="date" class="form-control" id="addBoarderModalBirthDate">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sex</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Male" class="form-check-input add-boarder-modal-sex" name="addBoarderModalSex[]" id="addBoarderModalSexMale"><label for="addBoarderModalSexMale" class="form-label">Male</label>
+              </div>
+              <div>
+                <input type="radio" value="Female" class="form-check-input add-boarder-modal-sex" name="addBoarderModalSex[]" id="addBoarderModalSexFemale"><label for="addBoarderModalSexFemale" class="form-label">Female</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Address (optional)</label>
+            <input type="text" class="form-control" id="addBoarderModalAddress" maxlength="50">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Mobile No.</label>
+            <input type="text" class="form-control" required id="addBoarderModalMobileNo">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Facebook Acc. (optional)</label>
+            <input type="text" class="form-control" id="addBoarderModalFacebookAcc" maxlength="50">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+            <textarea class="form-control" id="addBoarderModalNotes" maxlength="500"></textarea>
+          </div>
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="addBoarderModalSubmit">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status" class="status">Submit</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Filters  -->
+<div class="modal fade" id="filtersBoarderModal" tabindex="-1" aria-labelledby="filtersBoarderModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="filtersBoarderModalLabel">Filters</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="filtersBoarderModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="filtersBoarderModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="filtersBoarderModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersBoarderModalStatus[]" id="filtersBoarderModalStatusAll"><label for="filtersBoarderModalStatusAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Active" class="form-check-input" name="filtersBoarderModalStatus[]" id="filtersBoarderModalStatusActive"><label for="filtersBoarderModalStatusActive" class="form-label">Active</label>
+              </div>
+              <div>
+                <input type="radio" value="Inactive" class="form-check-input" name="filtersBoarderModalStatus[]" id="filtersBoarderModalStatusInactive"><label for="filtersBoarderModalStatusInactive" class="form-label">Inactive</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sort By First Name</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Ascending" class="form-check-input" name="filtersBoarderModalSort[]" id="filtersBoarderModalSortAscending"><label for="filtersBoarderModalSortAscending" class="form-label">Ascending</label>
+              </div>
+              <div>
+                <input type="radio" value="Descending" class="form-check-input" name="filtersBoarderModalSort[]" id="filtersBoarderModalSortDescending"><label for="filtersBoarderModalSortDescending" class="form-label">Descending</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sex</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersBoarderModalSex[]" id="filtersBoarderModalSexAll"><label for="filtersBoarderModalSexAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Male" class="form-check-input" name="filtersBoarderModalSex[]" id="filtersBoarderModalSexMale"><label for="filtersBoarderModalSexMale" class="form-label">Male</label>
+              </div>
+              <div>
+                <input type="radio" value="Female" class="form-check-input" name="filtersBoarderModalSex[]" id="filtersBoarderModalSexFemale"><label for="filtersBoarderModalSexFemale" class="form-label">Female</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Search (Full Name, Address, Mobile No., Facebook Acc.)</label>
+            <input type="search" placeholder="Search" class="form-control" id="filtersBoarderModalSearch" maxlength="50">
+          </div>
+          
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="filtersBoarderModalApply">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status" class="status">Apply</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Edit Modal  -->
+<div class="modal fade" id="viewEditBoarderModal" tabindex="-1" aria-labelledby="viewEditBoarderModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewEditBoarderModalLabel">View/Edit Boarder</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="viewEditBoarderModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="viewEditBoarderModalBody"></div>
+    </div>
+  </div>
+</div>

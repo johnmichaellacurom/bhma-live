@@ -1,0 +1,90 @@
+<!-- Billing  -->
+<div class="w-100 h-100 d-flex align-items-center justify-content-center gap-1 flex-column p-2 my-3 rounded bg-white shadow-lg" id="viewEditPaymentRentModalBilling">
+  <header class="w-100 d-flex align-items-center justify-content-center flex-column gap-1 flex-nowrap w-100">
+    <aside class="d-flex align-items-center justify-content-start gap-2 w-100">
+      <div><img src="assets/img/logo.png" alt="logo" width="30" height="30" class="rounded-circle"></div>    
+      <h5 class="mb-0 text-center text-dark"><div class="bh-name">Please wait...</h5>
+    </aside>
+    <aside class="d-flex align-items-center justify-content-between gap-2 flex-row w-100">
+      <h4 class="mb-0 text-dark text-uppercase">Rent Bill</h4>
+      <h6 class="mb-0 text-dark text-dark text-center fst-italic" id="viewEditPaymentRentModalBillingAsOf">Please wait...</h6>
+    </aside>
+  </header>
+  <div class="w-100 border"></div>
+  <section class="w-100 d-flex align-items-center justify-content-center gap-2 flex-column">
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Rent Code :</p>
+      <p class="mb-0 text-dark ms-3" id="viewEditPaymentRentModalBillingRentCode" style="word-break: break-word">Please wait...</p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Boarder Name :</p>
+      <p class="mb-0 text-dark ms-3" id="viewEditPaymentRentModalBillingBoarderName" style="word-break: break-word">Please wait...</p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Payment Code :</p>
+      <p class="mb-0 text-dark ms-3" id="viewEditPaymentRentModalBillingPaymentCode" style="word-break: break-word">Please wait...</p>
+    </div>              
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Status :</p>
+      <p class="mb-0 text-dark ms-3"><span class="badge" id="viewEditPaymentRentModalBillingStatus" style="word-break: break-word">Please wait...</span></p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Start Period :</p>
+      <p class="mb-0 text-dark ms-3" id="viewEditPaymentRentModalBillingStartPeriod" style="word-break: break-word">Please wait...</p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">End Period :</p>
+      <p class="mb-0 text-dark ms-3" id="viewEditPaymentRentModalBillingEndPeriod" style="word-break: break-word">Please wait...</p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Due Date :</p>
+      <p class="mb-0 text-dark ms-3" id="viewEditPaymentRentModalBillingDueDate" style="word-break: break-word">Please wait...</p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Amount Due (PHP) :</p>
+      <p class="mb-0 text-dark ms-3 fw-bold" id="viewEditPaymentRentModalBillingAmountDue" style="word-break: break-word">Please wait...</p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Discount (PHP) :</p>
+      <p class="mb-0 text-dark ms-3 fw-bold" id="viewEditPaymentRentModalBillingDiscount" style="word-break: break-word">Please wait...</p>
+    </div>              
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Late Fee (PHP) :</p>
+      <p class="mb-0 text-dark ms-3 fw-bold" id="viewEditPaymentRentModalBillingLateFee" style="word-break: break-word">Please wait...</p>
+    </div>    
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Total Amount Due (PHP) :</p>
+      <p class="mb-0 text-dark border border-3 p-2 rounded-circle ms-3 fw-bold fs-5" id="viewEditPaymentRentModalBillingTotalAmountDue" style="word-break: break-word">Please wait...</p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap d-none" id="viewEditPaymentRentModalBillingPaymentDateTimeDiv">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Payment Date/Time :</p>
+      <p class="mb-0 text-dark ms-3" id="viewEditPaymentRentModalBillingPaymentDateTime" style="word-break: break-word">Please wait...</p>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-between gap-1 flex-wrap d-none" id="viewEditPaymentRentModalBillingPaymentMethodDiv">
+      <p class="mb-0 text-dark fw-semibold text-uppercase">Payment Method :</p>
+      <p class="mb-0 text-dark ms-3" id="viewEditPaymentRentModalBillingPaymentMethod" style="word-break: break-word">Please wait...</p>
+    </div>    
+    <footer class="w-100 mt-4 d-flex align-items-center justify-content-center flex-column border border-start-0 border-end-0 border-bottom-0 border-1">
+      <strong class="text-uppercase text-center text-dark" id="viewEditPaymentRentModalBillingBoardingHouseOwner" style="word-break: break-word">Please wait...</strong>
+      <p class="mb-0 text-dark text-center fst-italic">Boarding House Owner</p>
+    </footer>
+  </section>
+</div>
+
+<div class="alert alert-warning mt-3 mb-2" role="alert">
+  These buttons work only in the browser.
+</div>
+<div class="d-flex align-items-center justify-content-center gap-3">
+  <button disabled class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap w-50" type="button" id="viewEditPaymentRentModalBillingDownload">
+    <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+    <span role="status">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
+    </span>
+  </button>
+  <button disabled class="btn btn-success d-flex align-items-center justify-content-center gap-2 flex-nowrap w-50" type="button" id="viewEditPaymentRentModalBillingPrint">
+    <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+    <span role="status">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer-icon lucide-printer"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+    </span>
+  </button>
+</div>

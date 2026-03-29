@@ -1,0 +1,201 @@
+<section>
+  <header class="d-flex align-items-center justify-content-between gap-2 flex-wrap py-2">
+    <h1 class="mb-0" style="cursor: pointer" id="belongingsContentRefresh">
+      <div class="d-flex align-items-center justify-content-start gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-lock-icon lucide-user-lock"><circle cx="10" cy="7" r="4"/><path d="M10.3 15H7a4 4 0 0 0-4 4v2"/><path d="M15 15.5V14a2 2 0 0 1 4 0v1.5"/><rect width="8" height="5" x="13" y="16" rx=".899"/></svg>Belongings
+      </div>
+    </h1>
+  
+    <div class="d-flex align-items-center justify-content-start gap-2 flex-wrap">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#filtersBelongingModal" id="filtersBelongingModalOpen">Filters</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBelongingModal" id="addBelongingModalOpen">New</button>
+    </div>
+  </header>
+
+  <div class="w-100 overflow-auto">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>STATUS</th>
+          <th>BELONGING NAME</th>
+          <th>BELONGING TYPE</th>
+          <th>CHARGE (PHP)</th>
+          <th>NOTES</th>
+          <th>LAST MODIFIED</th>
+          <th>DATE CREATED</th>
+        </tr>
+      </thead>
+      <tbody id="tableBelongings">
+        <tr>
+          <td colspan="7">Please wait...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center gap-2 flex-column">
+    <aside class="d-flex align-items-center justify-content-between gap-2 flex-wrap w-100">
+      <p class="mb-0" id="showingEntriesBelongings">Showing 1-10 of 0 entries</p>
+      <p class="mb-0" id="pageBelongings">Page 1 of 1</p>
+    </aside>
+    <aside class="w-100 d-flex align-items-center justify-content-center gap-2 flex-wrap">
+      <button type="button" id="prevPageBelongings" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Prev Page</span>
+      </button>
+      <button type="button" id="nextPageBelongings" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Next Page</span>
+      </button>
+    </aside>
+  </div>
+</section>
+
+<!-- Add Modal  -->
+<div class="modal fade" id="addBelongingModal" tabindex="-1" aria-labelledby="addBelongingModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addBelongingModalLabel">New Belonging</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="addBelongingModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="addBelongingModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="addBelongingModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Active" class="form-check-input" name="addBelongingModalStatus[]" id="addBelongingModalStatusActive"><label for="addBelongingModalStatusActive" class="form-label">Active</label>
+              </div>
+              <div>
+                <input type="radio" value="Inactive" class="form-check-input" name="addBelongingModalStatus[]" id="addBelongingModalStatusInactive"><label for="addBelongingModalStatusInactive" class="form-label">Inactive</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Belonging Name</label>
+            <input type="text" class="form-control" id="addBelongingModalBelongingName" maxlength="50" required>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Belonging Type</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Appliance" class="form-check-input" name="addBelongingModalBelongingType[]" id="addBelongingModalBelongingTypeAppliance"><label for="addBelongingModalBelongingTypeAppliance" class="form-label">Appliance</label>
+              </div>
+              <div>
+                <input type="radio" value="Gadget" class="form-check-input" name="addBelongingModalBelongingType[]" id="addBelongingModalBelongingTypeGadget"><label for="addBelongingModalBelongingTypeGadget" class="form-label">Gadget</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Charge (PHP)</label>
+            <select class="form-select" id="addBelongingModalCharge" required>
+              <option value=""></option>
+              <option value="10.00">10.00</option>
+              <option value="20.00">20.00</option>
+              <option value="50.00">50.00</option>
+              <option value="100.00">100.00</option>
+              <option value="250.00">250.00</option>
+              <option value="500.00">500.00</option>
+              <option value="750.00">750.00</option>
+              <option value="1000.00">1,000.00</option>
+            </select>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+            <textarea class="form-control" id="addBelongingModalNotes" maxlength="500"></textarea>
+          </div>
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="addBelongingModalSubmit">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status" class="status">Submit</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Filters  -->
+<div class="modal fade" id="filtersBelongingModal" tabindex="-1" aria-labelledby="filtersBelongingModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="filtersBelongingModalLabel">Filters</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="filtersBelongingModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="filtersBelongingModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="filtersBelongingModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersBelongingModalStatus[]" id="filtersBelongingModalStatusAll"><label for="filtersBelongingModalStatusAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Active" class="form-check-input" name="filtersBelongingModalStatus[]" id="filtersBelongingModalStatusActive"><label for="filtersBelongingModalStatusActive" class="form-label">Active</label>
+              </div>
+              <div>
+                <input type="radio" value="Inactive" class="form-check-input" name="filtersBelongingModalStatus[]" id="filtersBelongingModalStatusInactive"><label for="filtersBelongingModalStatusInactive" class="form-label">Inactive</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sort by Belonging Name</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Ascending" class="form-check-input" name="filtersRentModalSort[]" id="filtersBelongingModalSortAscending"><label for="filtersBelongingModalSortAscending" class="form-label">Ascending</label>
+              </div>
+              <div>
+                <input type="radio" value="Descending" class="form-check-input" name="filtersRentModalSort[]" id="filtersBelongingModalSortDescending"><label for="filtersBelongingModalSortDescending" class="form-label">Descending</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Belonging Type</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersBelongingModalBelongingType[]" id="filtersBelongingModalBelongingTypeAll"><label for="filtersBelongingModalBelongingTypeAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Appliance" class="form-check-input" name="filtersBelongingModalBelongingType[]" id="filtersBelongingModalBelongingTypeAppliance"><label for="filtersBelongingModalBelongingTypeAppliance" class="form-label">Appliance</label>
+              </div>
+              <div>
+                <input type="radio" value="Gadget" class="form-check-input" name="filtersBelongingModalBelongingType[]" id="filtersBelongingModalBelongingTypeGadget"><label for="filtersBelongingModalBelongingTypeGadget" class="form-label">Gadget</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Search (Belonging Name)</label>
+            <input type="search" placeholder="Search" class="form-control" id="filtersBelongingModalSearch" maxlength="50">
+          </div>
+          
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="filtersBelongingModalApply">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status" class="status">Apply</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Edit Modal  -->
+<div class="modal fade" id="viewEditBelongingModal" tabindex="-1" aria-labelledby="viewEditBelongingModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewEditBelongingModalLabel">View/Edit Belonging</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="viewEditBelongingModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="viewEditBelongingModalBody"></div>
+    </div>
+  </div>
+</div>

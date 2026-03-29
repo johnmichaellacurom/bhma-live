@@ -1,0 +1,188 @@
+<section>
+
+  <header class="d-flex align-items-center justify-content-between gap-2 flex-wrap py-2">
+    <h1 class="mb-0" style="cursor: pointer;" id="roomsContentRefresh">
+      <div class="d-flex align-items-center justify-content-start gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-warehouse-icon lucide-warehouse"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11"/><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z"/><path d="M6 13h12"/><path d="M6 17h12"/></svg>Rooms
+      </div>
+    </h1>
+    <div class="d-flex align-items-center justify-content-start gap-2 flex-wrap">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#filtersRoomModal" id="filtersRoomModalOpen">Filters</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRoomModal" id="addRoomModalOpen">New</button>
+    </div>
+  </header>
+
+  <div class="w-100 overflow-auto">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>STATUS</th>
+          <th>ROOM NAME</th>
+          <th class="bg-info-subtle">TOTAL LOWER BEDS</th>
+          <th class="bg-info-subtle">LOWER BEDS LEFT</th>
+          <th class="bg-success-subtle">TOTAL UPPER BEDS</th>
+          <th class="bg-success-subtle">UPPER BEDS LEFT</th>
+          <th>NOTES</th>
+          <th>LAST MODIFIED</th>
+          <th>DATE CREATED</th>
+        </tr>
+      </thead>
+      <tbody id="tableRooms">
+        <tr>
+          <td colspan="9">Please wait...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center gap-2 flex-column">
+    <aside class="d-flex align-items-center justify-content-between gap-2 flex-wrap w-100">
+      <p class="mb-0" id="showingEntriesRooms">Showing 1-10 of 0 entries</p>
+      <p class="mb-0" id="pageRooms">Page 1 of 1</p>
+    </aside>
+    <aside class="w-100 d-flex align-items-center justify-content-center gap-2 flex-wrap">
+      <button type="button" id="prevPageRooms" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Prev Page</span>
+      </button>
+      <button type="button" id="nextPageRooms" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Next Page</span>
+      </button>
+    </aside>
+  </div>
+</section>
+
+<!-- Add Modal  -->
+<div class="modal fade" id="addRoomModal" tabindex="-1" aria-labelledby="addRoomModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addRoomModalLabel">New Room</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="addRoomModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="addRoomModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="addRoomModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Active" class="form-check-input" name="addRoomModalStatus[]" id="addRoomModalStatusActive"><label for="addRoomModalStatusActive" class="form-label">Active</label>
+              </div>
+              <div>
+                <input type="radio" value="Inactive" class="form-check-input" name="addRoomModalStatus[]" id="addRoomModalStatusInactive"><label for="addRoomModalStatusInactive" class="form-label">Inactive</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Room Name</label>
+            <input type="text" class="form-control" required id="addRoomModalRoomName" maxlength="50">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Total Lower Beds</label>
+            <div class="d-flex align-items-center justify-content-center gap-2">
+              <button type="button" id="addRoomModalTotalLowerBedsMinus" class="btn btn-outline-secondary"><span class="fw-bold">&minus;</span></button>
+              <input type="number" class="form-control" readonly value="1" id="addRoomModalTotalLowerBeds">
+              <button type="button" id="addRoomModalTotalLowerBedsPlus" class="btn btn-outline-secondary"><span class="fw-bold">&plus;</span></button>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Lower Beds Left</label>
+            <input type="text" class="form-control" value="1" disabled id="addRoomModalLowerBedsLeft">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Total Upper Beds</label>
+            <div class="d-flex align-items-center justify-content-center gap-2">
+              <button type="button" id="addRoomModalTotalUpperBedsMinus" class="btn btn-outline-secondary"><span class="fw-bold">&minus;</span></button>
+              <input type="number" class="form-control" readonly value="1" id="addRoomModalTotalUpperBeds">
+              <button type="button" id="addRoomModalTotalUpperBedsPlus" class="btn btn-outline-secondary"><span class="fw-bold">&plus;</span></button>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Upper Beds Left</label>
+            <input type="text" class="form-control" value="1" disabled id="addRoomModalUpperBedsLeft">
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+            <textarea class="form-control" id="addRoomModalNotes" maxlength="500"></textarea>
+          </div>
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="submitRoomModalButton">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status" class="status">Submit</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Filters  -->
+<div class="modal fade" id="filtersRoomModal" tabindex="-1" aria-labelledby="filtersRoomModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="filtersRoomModalLabel">Filters</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="filtersRoomModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="filtersRoomModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="filtersRoomModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersRoomModalStatus[]" id="filtersRoomModalStatusAll"><label for="filtersRoomModalStatusAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Active" class="form-check-input" name="filtersRoomModalStatus[]" id="filtersRoomModalStatusActive"><label for="filtersRoomModalStatusActive" class="form-label">Active</label>
+              </div>
+              <div>
+                <input type="radio" value="Inactive" class="form-check-input" name="filtersRoomModalStatus[]" id="filtersRoomModalStatusInactive"><label for="filtersRoomModalStatusInactive" class="form-label">Inactive</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sort By Room Name</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Ascending" class="form-check-input" name="filtersRoomModalSort[]" id="filtersRoomModalSortAscending"><label for="filtersRoomModalSortAscending" class="form-label">Ascending</label>
+              </div>
+              <div>
+                <input type="radio" value="Descending" class="form-check-input" name="filtersRoomModalSort[]" id="filtersRoomModalSortDescending"><label for="filtersRoomModalSortDescending" class="form-label">Descending</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Search (Room Name)</label>
+            <input type="search" placeholder="Search" class="form-control" id="filtersRoomModalSearch" maxlength="50">
+          </div>
+          
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="filtersRoomModalApply">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status" class="status">Apply</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Edit Modal  -->
+<div class="modal fade" id="viewEditRoomModal" tabindex="-1" aria-labelledby="viewEditRoomModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewEditRoomModalLabel">View/Edit Room</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="viewEditRoomModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="viewEditRoomModalBody"></div>
+    </div>
+  </div>
+</div>

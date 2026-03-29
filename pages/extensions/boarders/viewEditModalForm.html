@@ -1,0 +1,109 @@
+<form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="viewEditBoarderModalForm">
+  <div class="w-100 d-flex align-items-start justify-content-start gap-2 flex-nowrap overflow-auto">
+    <div class="w-100">
+      <div class="w-100">
+        <a href="#rents" class="text-decoration-none btn btn-outline-primary w-100" id="viewEditBoarderModalViewRents">View Rents</a>
+      </div>
+    </div>
+    <!-- <div class="w-100">
+      <div class="w-100">
+        <a href="#payments" data-payment-type="rent" data-boarder-id="1" class="text-decoration-none btn btn-outline-primary w-100" id="viewEditBoarderModalViewPayments">View Payments</a>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Status</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <div>
+        <input type="radio" checked value="Active" class="form-check-input add-boarder-modal-status" name="viewEditBoarderModalStatus[]" id="viewEditBoarderModalStatusActive"><label for="viewEditBoarderModalStatusActive" class="form-label">Active</label>
+      </div>
+      <div>
+        <input type="radio" value="Inactive" class="form-check-input add-boarder-modal-status" name="viewEditBoarderModalStatus[]" id="viewEditBoarderModalStatusInactive"><label for="viewEditBoarderModalStatusInactive" class="form-label">Inactive</label>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">First Name</label>
+    <input type="text" class="form-control" required id="viewEditBoarderModalFirstName" maxlength="50">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Middle Name (optional)</label>
+    <input type="text" class="form-control" id="viewEditBoarderModalMiddleName" maxlength="50">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Last Name</label>
+    <input type="text" class="form-control" required id="viewEditBoarderModalLastName" maxlength="50">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Suffix (optional)</label>
+    <select class="form-select" id="viewEditBoarderModalSuffix">
+      <option value=""></option>
+      <option value="Jr.">Jr.</option>
+      <option value="Sr.">Sr.</option>
+      <option value="I">I</option>
+      <option value="II">II</option>
+      <option value="III">III</option>
+      <option value="IV">IV</option>
+      <option value="V">V</option>
+      <option value="VI">VI</option>
+      <option value="VII">VII</option>
+      <option value="VIII">VIII</option>
+      <option value="IX">IX</option>
+      <option value="X">X</option>
+    </select>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Nick Name</label>
+    <input type="text" class="form-control" required id="viewEditBoarderModalNickName" maxlength="50">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Birth Date (optional)</label>
+    <input type="date" class="form-control" id="viewEditBoarderModalBirthDate">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Age</label>
+    <input type="text" class="form-control" disabled id="viewEditBoarderModalAge">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Sex</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <div>
+        <input type="radio" checked value="Male" class="form-check-input add-boarder-modal-sex" name="viewEditBoarderModalSex[]" id="viewEditBoarderModalSexMale"><label for="viewEditBoarderModalSexMale" class="form-label">Male</label>
+      </div>
+      <div>
+        <input type="radio" value="Female" class="form-check-input add-boarder-modal-sex" name="viewEditBoarderModalSex[]" id="viewEditBoarderModalSexFemale"><label for="viewEditBoarderModalSexFemale" class="form-label">Female</label>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Address (optional)</label>
+    <input type="text" class="form-control" id="viewEditBoarderModalAddress" maxlength="50">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Mobile No.</label>
+    <input type="text" class="form-control" required id="viewEditBoarderModalMobileNo" maxlength="50">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Facebook Acc. (optional)</label>
+    <input type="text" class="form-control" id="viewEditBoarderModalFacebookAcc" maxlength="50">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+    <textarea class="form-control" id="viewEditBoarderModalNotes" maxlength="500"></textarea>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Last Modified</label>
+    <input type="text" class="form-control" disabled id="viewEditBoarderModalLastModified">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Date Created</label>
+    <input type="text" class="form-control" disabled id="viewEditBoarderModalDateCreated">
+  </div>
+  <div class="w-100">
+    <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="viewEditBoarderModalUpdate">
+      <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+      <span role="status" class="status">Update</span>
+    </button>
+  </div>
+</form>

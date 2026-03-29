@@ -1,0 +1,105 @@
+<div class="w-100">
+  <label class="form-label text-uppercase">Entries per page</label>
+  <select class="form-select" id="settingsBoardersEntriesPerPage">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="25">25</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+  </select>
+</div>
+<div class="alert alert-warning" role="alert">
+  <span class="fw-bold">Please read: </span>Changes to the configuration will take effect after the next payment.
+</div>
+<div class="d-flex align-items-center justify-content-center gap-2 w-100">
+  <div class="w-100 border border-primary"></div>
+  <p class="mb-0 text-primary" style="white-space:nowrap">Regular</p>
+  <div class="w-100 border border-primary"></div>
+</div>
+<div class="w-100">
+  <label class="form-label text-uppercase mb-0">Billing Cycle (Days)</label>
+  <p class="opacity-75 mb-0 p-1">Number of days per billing period.</p>
+  <select class="form-select" id="settingsBoardersBillingCycleRegular">
+    <option value="7">7</option>
+    <option value="15">15</option>
+    <option selected value="30">30</option>
+    <option value="31">31</option>
+  </select>
+</div>
+<div class="w-100">
+  <label class="form-label text-uppercase mb-0">Billing Amount per Cycle (PHP)</label>
+  <p class="opacity-75 mb-0 p-1">Room rent for one billing period, utilities billed separately.</p>
+  <input type="number" class="form-control" placeholder="0.00" value="700.00" id="settingsBoardersBillingAmountPerCycleRegular">
+</div>
+<div class="w-100">
+  <label class="form-label text-uppercase mb-0">Late Fee per Day (% of Billing Amount)</label>
+  <p class="opacity-75 mb-0 p-1">Daily penalty for late payment, calculated as a percentage of the billing amount.</p>
+  <select class="form-select" id="settingsBoardersLateFeePerDayRegular">
+    <option selected value="0">0</option>
+    <option value="0.5">0.5</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select>
+</div>
+<div class="d-flex align-items-center justify-content-center gap-2 w-100 mt-3">
+  <div class="w-100 border border-primary"></div>
+  <p class="mb-0 text-primary" style="white-space:nowrap">Transient</p>
+  <div class="w-100 border border-primary"></div>
+</div>
+<div class="w-100">
+  <label class="form-label text-uppercase mb-0">Billing Cycle (Days)</label>
+  <p class="opacity-75 mb-0 p-1">Number of days per billing period.</p>
+  <select class="form-select" id="settingsBoardersBillingCycleTransient">
+    <option value="1">1</option>
+    <option value="3">3</option>
+    <option value="7">7</option>
+  </select>
+</div>
+<div class="w-100">
+  <label class="form-label text-uppercase mb-0">Billing Amount per Cycle (PHP)</label>
+  <p class="opacity-75 mb-0 p-1">Room rent for one billing period, utilities included.</p>
+  <input type="number" class="form-control" placeholder="0.00" value="50.00" id="settingsBoardersBillingAmountPerCycleTransient">
+  <footer>
+    <section class="d-flex align-items-center justify-content-center gap-3 flex-nowrap mt-2">
+      <aside class="w-50">
+        <p class="mb-0">Electric (%)</p>
+        <select class="form-select" id="settingsBoardersBillingAmountPerCycleElectricPercentTransient">
+          <option value="0">0</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option selected value="20">20</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+        </select>
+      </aside>
+      <aside class="w-50">
+        <p class="mb-0">Water (%)</p>
+        <select class="form-select" id="settingsBoardersBillingAmountPerCycleWaterPercentTransient">
+          <option selected value="0">0</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+        </select>
+      </aside>
+    </section>
+    <ul class="opacity-75 mb-0 ps-4 py-1">
+      <li><span id="settingsBoardersBillingAmountPerCycleRoomLabelPercentTransient">80</span>% of this amount is for room rent for one billing period</li>
+      <li><span id="settingsBoardersBillingAmountPerCycleElectricLabelPercentTransient">20</span>% of this amount is deducted for the electric bill</li>
+      <li><span id="settingsBoardersBillingAmountPerCycleWaterLabelPercentTransient">0</span>% of this amount is deducted for the water bill</li>
+    </ul>
+  </footer>
+</div>
+<div class="w-100">
+  <label class="form-label text-uppercase mb-0">Late Fee per Day (% of Billing Amount)</label>
+  <p class="opacity-75 mb-0 p-1">Daily penalty for late payment, calculated as a percentage of the billing amount.</p>
+  <select class="form-select" id="settingsBoardersLateFeePerDayTransient">
+    <option selected value="0">0</option>
+    <option value="0.5">0.5</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select>
+</div>

@@ -1,0 +1,170 @@
+<section>
+  <header class="d-flex align-items-center justify-content-between gap-2 flex-wrap py-2">
+    <h1 class="mb-0" style="cursor: pointer;" id="rentsContentRefresh">
+      <div class="d-flex align-items-center justify-content-start gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Rents
+      </div>
+    </h1>
+  
+    <div class="d-flex align-items-center justify-content-start gap-2 flex-wrap">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#filtersRentModal" id="filtersRentModalOpen">Filters</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRentModal" id="addRentModalOpen">New</button>
+    </div>
+  </header>
+
+  <div class="w-100 overflow-auto">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>RENT CODE</th>
+          <th>STATUS</th>
+          <th>BOARDER NAME</th>
+          <th>BELONGINGS</th>
+          <th>ROOM</th>
+          <th>BED LEVEL</th>
+          <th>RENT TYPE</th>
+          <th>DISCOUNT (%)</th>
+          <th>CHECK-IN DATE/TIME</th>
+          <th>CHECK-OUT DATE/TIME</th>
+          <th>NOTES</th>
+          <th>LAST MODIFIED</th>
+          <th>DATE CREATED</th>
+        </tr>
+      </thead>
+      <tbody id="tableRents">
+        <tr>
+          <td colspan="13">Please wait...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center gap-2 flex-column">
+    <aside class="d-flex align-items-center justify-content-between gap-2 flex-wrap w-100">
+      <p class="mb-0" id="showingEntriesRents">Showing 1-10 of 0 entries</p>
+      <p class="mb-0" id="pageRents">Page 1 of 1</p>
+    </aside>
+    <aside class="w-100 d-flex align-items-center justify-content-center gap-2 flex-wrap">
+      <button type="button" id="prevPageRents" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Prev Page</span>
+      </button>
+      <button type="button" id="nextPageRents" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Next Page</span>
+      </button>
+    </aside>
+  </div>
+</section>
+
+<!-- Add Modal  -->
+<div class="modal fade" id="addRentModal" tabindex="-1" aria-labelledby="addRentModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addRentModalLabel">New Rent</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="addRentModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="addRentModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Filters  -->
+<div class="modal fade" id="filtersRentModal" tabindex="-1" aria-labelledby="filtersRentModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="filtersRentModalLabel">Filters</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="filtersRentModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="filtersRentModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="filtersRentModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersRentModalStatus[]" id="filtersRentModalStatusAll"><label for="filtersRentModalStatusAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Ongoing" class="form-check-input" name="filtersRentModalStatus[]" id="filtersRentModalStatusOngoing"><label for="filtersRentModalStatusOngoing" class="form-label">Ongoing</label>
+              </div>
+              <div>
+                <input type="radio" value="On Break" class="form-check-input" name="filtersRentModalStatus[]" id="filtersRentModalStatusOnBreak"><label for="filtersRentModalStatusOnBreak" class="form-label">On Break</label>
+              </div>
+              <div>
+                <input type="radio" value="Unpaid" class="form-check-input" name="filtersRentModalStatus[]" id="filtersRentModalStatusUnpaid"><label for="filtersRentModalStatusUnpaid" class="form-label">Unpaid</label>
+              </div>
+              <div>
+                <input type="radio" value="Completed" class="form-check-input" name="filtersRentModalStatus[]" id="filtersRentModalStatusCompleted"><label for="filtersRentModalStatusCompleted" class="form-label">Completed</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sort by Rent Code</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Ascending" class="form-check-input" name="filtersRentModalSort[]" id="filtersRentModalSortAscending"><label for="filtersRentModalSortAscending" class="form-label">Ascending</label>
+              </div>
+              <div>
+                <input type="radio" value="Descending" class="form-check-input" name="filtersRentModalSort[]" id="filtersRentModalSortDescending"><label for="filtersRentModalSortDescending" class="form-label">Descending</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Bed Level</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersRentModalBedLevel[]" id="filtersRentModalBedLevelAll"><label for="filtersRentModalBedLevelAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Lower" class="form-check-input" name="filtersRentModalBedLevel[]" id="filtersRentModalBedLevelLower"><label for="filtersRentModalBedLevelLower" class="form-label">Lower</label>
+              </div>
+              <div>
+                <input type="radio" value="Upper" class="form-check-input" name="filtersRentModalBedLevel[]" id="filtersRentModalBedLevelUpper"><label for="filtersRentModalBedLevelUpper" class="form-label">Upper</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Rent Type</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersRentModalRentType[]" id="filtersRentModalRentTypeAll"><label for="filtersRentModalRentTypeAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Regular" class="form-check-input" name="filtersRentModalRentType[]" id="filtersRentModalRentTypeRegular"><label for="filtersRentModalRentTypeRegular" class="form-label">Regular</label>
+              </div>
+              <div>
+                <input type="radio" value="Transient" class="form-check-input" name="filtersRentModalRentType[]" id="filtersRentModalRentTypeTransient"><label for="filtersRentModalRentTypeTransient" class="form-label">Transient</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Search (Rent Code)</label>
+            <input type="search" placeholder="Search" class="form-control" maxlength="50" id="filtersRentModalSearch">
+          </div>          
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="filtersRentModalApply">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status" class="status">Apply</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Edit Modal  -->
+<div class="modal fade" id="viewEditRentModal" tabindex="-1" aria-labelledby="viewEditRentModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewEditRentModalLabel">View/Edit Rent</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="viewEditRentModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="viewEditRentModalBody"></div>
+    </div>
+  </div>
+</div>

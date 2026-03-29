@@ -1,0 +1,69 @@
+<form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="viewEditBillModalForm">
+  <div class="w-100 d-flex align-items-start justify-content-start gap-2 flex-nowrap overflow-auto">
+    <div class="w-100">
+      <div class="w-100">
+        <a href="#payments" class="text-decoration-none btn btn-outline-primary w-100" id="viewEditBillModalViewPayments">View Payments</a>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Bill Code</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalBillCode" value="Please wait...">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Status</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalStatus" value="Please wait...">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Bill Type</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalBillType" value="Please wait...">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Room</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalRoom" value="Please wait...">
+  </div>          
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Start Period</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalStartPeriod" value="Please wait...">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">End Period</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalEndPeriod" value="Please wait...">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Due Date</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalDueDate" value="Please wait...">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Amount (PHP)</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalAmount" value="Please wait...">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Remaining Balance (PHP)</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalRemaining" value="Please wait...">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+    <textarea class="form-control" id="viewEditBillModalNotes"></textarea>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Last Modified</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalLastModified">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Date Created</label>
+    <input type="text" class="form-control" disabled id="viewEditBillModalDateCreated">
+  </div>
+  <div class="w-100">
+    <div class="alert alert-warning" role="alert" id="viewEditBillModalAlert">
+      <span class="fw-bold">Please read: </span><br>
+      <span>If the status is set to 'Unbilled', 'Overdue', 'Partially', or 'Paid' the field will be disabled and can no longer be updated.</span>
+    </div>
+    <div class="d-flex items-center justify-content-between gap-2 flex-wrap w-100">
+      <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="viewEditBillModalUpdate">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status">Set as Unbill</span>
+      </button>
+    </div>
+  </div>
+</form>

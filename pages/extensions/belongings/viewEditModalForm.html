@@ -1,0 +1,74 @@
+
+<form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="viewEditBelongingModalForm">
+  <!-- <div class="w-100 d-flex align-items-start justify-content-start gap-2 flex-nowrap overflow-auto">
+    <div class="w-100">
+      <div class="w-100">
+        <a href="#rents" data-belonging-id="1" class="text-decoration-none btn btn-outline-primary w-100" id="viewEditBelongingModalViewRents">View Rents</a>
+      </div>
+    </div>
+  </div> -->
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Status</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <div>
+        <input type="radio" checked value="Active" class="form-check-input" name="viewEditBelongingModalStatus[]" id="viewEditBelongingModalStatusActive"><label for="viewEditBelongingModalStatusActive" class="form-label">Active</label>
+      </div>
+      <div>
+        <input type="radio" value="Inactive" class="form-check-input" name="viewEditBelongingModalStatus[]" id="viewEditBelongingModalStatusInactive"><label for="viewEditBelongingModalStatusInactive" class="form-label">Inactive</label>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Belonging Name</label>
+    <input type="text" class="form-control" id="viewEditBelongingModalBelongingName" maxlength="50" required>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Belonging Type</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <div>
+        <input type="radio" checked value="Appliance" class="form-check-input" name="viewEditBelongingModalBelongingType[]" id="viewEditBelongingModalBelongingTypeAppliance"><label for="viewEditBelongingModalBelongingTypeAppliance" class="form-label">Appliance</label>
+      </div>
+      <div>
+        <input type="radio" value="Gadget" class="form-check-input" name="viewEditBelongingModalBelongingType[]" id="viewEditBelongingModalBelongingTypeGadget"><label for="viewEditBelongingModalBelongingTypeGadget" class="form-label">Gadget</label>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Charge (PHP)</label>
+    <select class="form-select" id="viewEditBelongingModalCharge" required>
+      <option value=""></option>
+      <option value="10.00">10.00</option>
+      <option value="20.00">20.00</option>
+      <option value="50.00">50.00</option>
+      <option value="100.00">100.00</option>
+      <option value="250.00">250.00</option>
+      <option value="500.00">500.00</option>
+      <option value="750.00">750.00</option>
+      <option value="1000.00">1,000.00</option>
+    </select>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+    <textarea class="form-control" id="viewEditBelongingModalNotes" maxlength="500"></textarea>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Last Modified</label>
+    <input type="text" class="form-control" disabled id="viewEditBelongingModalLastModified">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Date Created</label>
+    <input type="text" class="form-control" disabled id="viewEditBelongingModalDateCreated">
+  </div>
+  <div class="w-100">
+    <div class="alert alert-warning" role="alert">
+      <span class="fw-bold">Please read: </span><br>
+      <span>Update to charge will take effect after next payment.</span><br>
+      <span class="text">After this action, you can update the fields at any time.</span>
+    </div>
+
+    <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="viewEditBelongingModalUpdate">
+      <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+      <span role="status" class="status">Update</span>
+    </button>
+  </div>
+</form>

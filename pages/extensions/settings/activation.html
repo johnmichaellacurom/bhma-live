@@ -1,0 +1,83 @@
+<aside class="w-100 rounded d-flex align-items-start justify-content-center gap-2 flex-column accordion-header">
+  <p class="mb-0 fw-bold text-uppercase" id="settingsActivationAppID"><span class="text-primary">App ID: </span>Please wait...</p>
+  <p class="mb-0 badge bg-danger" id="settingsActivationStatus">Trial</p>
+  <p class="mb-0 fw-bold text-uppercase" id="settingsActivationExpires"><span class="text-danger">Expires: </span>Please wait...</p>
+  <div class="d-flex items-center justify-content-center gap-1">
+    <input class="form-check-input" type="checkbox" id="settingActivationCheck">
+    <label class="form-label mb-0" for="settingActivationCheck">Activation</label>
+  </div>
+
+  <div class="d-none d-flex align-items-center justify-content-center w-100 flex-column gap-2 fw-medium accordion-body p-0" id="settingsActivationPlans">
+    <div class="d-none w-100 d-flex align-items-center justify-content-start gap-2 flex-wrap">
+      <div id="planDurationTrial" class="plan-duration w-100 border border-3 p-2 rounded d-flex align-items-center justify-content-center flex-column gap-1 bg-danger-subtle" style="max-width: 8rem !important;">
+        <header class="w-100 d-flex align-items-center justify-content-between gap-1 flex-column">
+          <h4 class="mb-0">Trial</h4>
+          <p class="mb-0">15 days</p> 
+        </header>
+        <footer class="w-100 d-flex align-items-center justify-content-between gap-0 flex-column">
+          <p class="mb-0">0.00 PHP</p>
+          <!-- <p class="mb-0 opacity-75 fst-italic" style="font-size: small;">1500ms delay</p> -->
+        </footer>
+      </div>
+      <div id="planDurationBasic" class="plan-duration w-100 border border-3 p-2 rounded d-flex align-items-center justify-content-center flex-column gap-2 bg-warning-subtle" style="max-width: 8rem !important;">
+        <header class="w-100 d-flex align-items-center justify-content-between gap-1 flex-column">
+          <h4 class="mb-0">Basic</h4>
+          <p class="mb-0">1 month</p>
+        </header>
+        <footer class="w-100 d-flex align-items-center justify-content-between gap-0 flex-column">
+          <p class="mb-0">299.00 PHP</p>
+          <!-- <p class="mb-0 opacity-75 fst-italic" style="font-size: small;">1200ms delay</p> -->
+        </footer>
+      </div>
+      <div id="planDurationStandard" class="plan-duration w-100 border border-3 p-2 rounded d-flex align-items-center justify-content-center flex-column gap-2 bg-info-subtle" style="max-width: 8rem !important;">
+        <header class="w-100 d-flex align-items-center justify-content-between gap-1 flex-column">
+          <h4 class="mb-0">Standard</h4>
+          <p class="mb-0">5 months</p>
+        </header>
+        <footer class="w-100 d-flex align-items-center justify-content-between gap-0 flex-column">
+          <p class="mb-0">699.00 PHP</p>
+          <!-- <p class="mb-0 opacity-75 fst-italic" style="font-size: small;">900ms delay</p> -->
+        </footer>
+      </div>
+      <div id="planDurationPremium" class="plan-duration w-100 border border-3 p-2 rounded d-flex align-items-center justify-content-center flex-column gap-2 bg-primary-subtle" style="max-width: 8rem !important;">
+        <header class="w-100 d-flex align-items-center justify-content-between gap-1 flex-column">
+          <h4 class="mb-0">Premium</h4>
+          <p class="mb-0">1 year</p>
+        </header>
+        <footer class="w-100 d-flex align-items-center justify-content-between gap-0 flex-column">
+          <p class="mb-0">1,299.00 PHP</p>
+          <!-- <p class="mb-0 opacity-75 fst-italic" style="font-size: small;">600ms delay</p> -->
+        </footer>
+      </div>
+      <div id="planDurationLifetime" class="plan-duration w-100 border border-3 p-2 rounded d-flex align-items-center justify-content-center flex-column gap-2 bg-success-subtle" style="max-width: 8rem !important;">
+        <header class="w-100 d-flex align-items-center justify-content-between gap-1 flex-column">
+          <h4 class="mb-0">Lifetime</h4>
+          <p class="mb-0">Permanent</p>
+        </header>
+        <footer class="w-100 d-flex align-items-center justify-content-between gap-0 flex-column">
+          <p class="mb-0">4,999.00 PHP</p>
+          <!-- <p class="mb-0 opacity-75 fst-italic" style="font-size: small;">300ms delay</p> -->
+        </footer>
+      </div>
+    </div>
+    <form autocomplete="off" class="w-100 d-flex align-items-center justify-content-center gap-2 flex-column" id="settingsActivationForm">
+      <div class="w-100">
+        <div class="p-2 rounded bg-primary-subtle mb-2">
+          <p class="mb-0 opacity-75">For activation code please contact:</p>
+          <!-- <p class="mb-0 fst-italic opacity-75">Name: John Michael Lacurom</p>
+          <p class="mb-0 fst-italic opacity-75">TNT Mobile #: <a href="tel:09705119223">0970-511-9223</a></p>
+          <p class="mb-0 fst-italic opacity-75">TM Mobile #: <a href="tel:09550874955">0955-087-4955</a></p> -->
+          <button type="button" class="btn btn-outline-primary btn-sm open-url mt-2">Developer Contact Information</button>
+        </div>
+        <input type="text" class="form-control" id="settingsActivationCode" placeholder="Enter activation code" required maxlength="50">
+      </div>
+      <div class="w-100">
+        <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="settingsActivationActivateButton">
+          <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+          <span role="status" class="status">Activate</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</aside>
+

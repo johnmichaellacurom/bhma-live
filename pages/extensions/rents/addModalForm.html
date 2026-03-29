@@ -1,0 +1,83 @@
+<form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="addRentModalForm">
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Status</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <span class="badge text-bg-info">Ongoing</span>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Boarder Name</label>
+    <input type="search" class="form-control mb-2" placeholder="Search name" id="addRentModalSearchBoarderName">
+    <select class="form-select" required id="addRentModalBoarderName">
+      <option value=""></option>
+    </select>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Belongings</label>
+    <div class="d-flex align-items-center justify-content-start gap-2 flex-wrap" id="addRentModalBelongings">Please wait...</div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Room</label>
+    <select class="form-select" required id="addRentModalRoom">
+      <option value=""></option>
+    </select>
+    <div id="addRentModalRoomBedsLeft" class="mt-2 d-none d-flex align-items-center justify-content-start gap-1 flex-wrap">
+      <div class="d-flex align-items-center justify-content-center" id="addRentModalRoomLowerBedsLeft">Please wait...</div>
+      <div class="d-flex align-items-center justify-content-center" id="addRentModalRoomUpperBedsLeft">Please wait...</div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Bed Level</label>
+    <select class="form-select" required id="addRentModalBedLevel">
+      <option value=""></option>
+    </select>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Rent Type</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <div>
+        <input type="radio" checked value="Regular" class="form-check-input" name="addRentModalRentType[]" id="addRentModalRentTypeRegular"><label for="addRentModalRentTypeRegular" class="form-label">Regular</label>
+      </div>
+      <div>
+        <input type="radio" value="Transient" class="form-check-input" name="addRentModalRentType[]" id="addRentModalRentTypeTransient"><label for="addRentModalRentTypeTransient" class="form-label">Transient</label>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold mb-0">Discount (%)</label>
+    <p class="opacity-75 mb-0 p-1">Enter the discount percentage to reduce the boarder’s rent amount. This does not include water bills, electric bills, or late fees.</p>
+    <select class="form-select" required id="addRentModalDiscount">
+      <option value="0">0</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Check-in Date/Time</label>
+    <input type="datetime-local" class="form-control" required id="addRentModalCheckIn">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+    <textarea class="form-control" id="addRentModalNotes" maxlength="500"></textarea>
+  </div>
+  <div class="w-100">
+    <div class="alert alert-warning" role="alert">
+      <p class="mb-1">
+        <span class="fw-bold">Please read: </span>Make sure you entered the correct details. After this action, Boarder Name and Check-in Date/Time cannot be changed. All other fields can still be updated except for these two.
+      </p>
+      <p class="mb-0">
+        <span class="fw-bold">Note: </span>Once submitted, a payment will be generated.
+      </p>
+    </div>
+
+    <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="addRentModalSubmit">
+      <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+      <span role="status" class="status">Submit</span>
+    </button>
+  </div>
+</form>

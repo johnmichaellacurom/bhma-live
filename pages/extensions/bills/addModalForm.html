@@ -1,0 +1,72 @@
+<form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="addBillModalForm">
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Status</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <span class="badge text-bg-warning">Unpaid</span>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Bill Type</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <div>
+        <input type="radio" required checked value="Electric" class="form-check-input" name="addBillModalBillType[]" id="addBillModalBillTypeElectric"><label for="addBillModalBillTypeElectric" class="form-label">Electric</label>
+      </div>
+      <div>
+        <input type="radio" required value="Water" class="form-check-input" name="addBillModalBillType[]" id="addBillModalBillTypeWater"><label for="addBillModalBillTypeWater" class="form-label">Water</label>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Room</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <div>
+        <input type="radio" checked value="All" class="form-check-input" name="addBillModalRoomType[]" id="addBillModalRoomTypeAll"><label for="addBillModalRoomTypeAll" class="form-label">All</label>
+      </div>
+      <div>
+        <input type="radio" value="Specific" class="form-check-input" name="addBillModalRoomType[]" id="addBillModalRoomTypeSpecific"><label for="addBillModalRoomTypeSpecific" class="form-label">Specific</label>
+      </div>
+    </div>
+    
+    <!-- display only if the room type is specific  -->
+    <select class="form-select d-none mb-2" id="addBillModalRoomName">
+      <option value=""></option>
+    </select>
+
+    <div class="d-flex align-items-center justify-content-start" id="addBillModalNumberOngoingRegularRents"></div>
+  </div>          
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Start Period</label>
+    <input type="date" class="form-control" id="addBillModalStartPeriod" required>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">End Period</label>
+    <input type="date" class="form-control" id="addBillModalEndPeriod" required>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Due Date</label>
+    <input type="date" class="form-control" id="addBillModalDueDate" required>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Amount (PHP)</label>
+    <input type="number" class="form-control" id="addBillModalAmount" required>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+    <textarea class="form-control" id="addBillModalNotes" maxlength="500"></textarea>
+  </div>
+  <div class="w-100">
+    <div class="alert alert-warning" role="alert">
+      <p class="mb-1">
+        <span class="fw-bold">Please read: </span>Make sure you entered the correct details. After this action, these fields cannot be changed, except for the status and notes.
+      </p>
+      <p class="mb-0">
+        <span class="fw-bold">Note: </span>Once submitted, a payment will be generated.
+      </p>
+    </div>
+    
+    <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="addBillModalSubmit">
+      <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+      <span role="status" class="status">Submit</span>
+    </button>
+  </div>
+</form>

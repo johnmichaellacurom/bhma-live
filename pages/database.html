@@ -1,0 +1,63 @@
+<section>
+
+  <header class="d-flex align-items-center justify-content-between gap-2 flex-wrap py-2">
+    <h1 class="mb-0" style="cursor: pointer;" id="databaseContentRefresh">
+      <div class="d-flex align-items-center justify-content-start gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-icon lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>Database
+      </div>
+    </h1>
+  </header>
+
+  <div class="d-flex align-items-center justify-content-center gap-2 flex-column">
+
+    <div class="shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-dark-subtle w-100 p-3 rounded d-flex align-items-start justify-content-center gap-2 flex-column">
+        <h4 class="mb-0">Storage Space</h4>
+      </aside>
+      <aside class="d-flex align-items-center justify-content-center w-100 flex-column gap-1 fw-medium">
+        <div class="progress w-100" role="progressbar" aria-label="Progress Bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressBar">
+          <div class="progress-bar progress-bar-striped text-bg-primary" style="width: 0%">0%</div>
+        </div>
+        <div class="w-100 text-end">
+          <p class="mb-0" id="progressBarInfo">Please wait...</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Comeback here  -->
+    <!-- <div class="shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded d-flex align-items-start justify-content-center gap-2 flex-column">
+        <h4 class="mb-0">Backup</h4>
+        <p class="mb-0">Generate and display the database data as JSON text in the textarea below. Copy the text and save it manually in a file or notes app for safekeeping.</p>
+        <button type="button" class="btn btn-primary">Backup</button>
+      </aside>
+      <aside class="d-flex align-items-end justify-content-end gap-2 w-100 flex-column">
+        <textarea readonly class="form-control" style="height: 5rem;" placeholder="Backup JSON will appear here."></textarea>
+        <button type="button" disabled class="btn btn-outline-primary">Copy JSON</button>
+      </aside>
+    </div>
+
+    <div class="shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded d-flex align-items-start justify-content-center gap-2 flex-column">
+        <h4 class="mb-0">Restore</h4>
+        <p class="mb-0">Paste the saved JSON text from your backup file into the textarea below, then click Restore to load it into the current database. This will replace all existing data.</p>
+        <button type="button" class="btn btn-outline-primary">Paste JSON</button>
+      </aside>
+      <aside class="d-flex align-items-end justify-content-end gap-2 w-100 flex-column">
+        <textarea readonly class="form-control" style="height: 5rem;" placeholder="Pasted backup JSON will appear here."></textarea>
+        <button type="button" disabled class="btn btn-primary">Restore</button>
+      </aside>
+    </div>
+
+    <div class="shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-danger-subtle w-100 p-3 rounded d-flex align-items-start justify-content-center gap-2 flex-column">
+        <h4 class="mb-0">Delete Data</h4>
+        <p class="mb-0">Permanently remove all data from the database. This action cannot be undone, so proceed with caution if you want a fresh setup.</p>
+      </aside>
+      <aside class="d-flex align-items-end justify-content-end gap-2 w-100">
+        <button type="button" class="btn btn-danger">Delete data</button>
+      </aside>
+    </div> -->
+
+  </div>
+</section>

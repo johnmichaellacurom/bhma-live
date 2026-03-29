@@ -1,0 +1,160 @@
+<section>
+  <header class="d-flex align-items-center justify-content-between gap-2 flex-wrap py-2">
+    <h1 class="mb-0" style="cursor: pointer;" id="billsContentRefresh">
+      <div class="d-flex align-items-center justify-content-start gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt-text-icon lucide-receipt-text"><path d="M13 16H8"/><path d="M14 8H8"/><path d="M16 12H8"/><path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"/></svg>Bills
+      </div>
+    </h1>
+  
+    <div class="d-flex align-items-center justify-content-start gap-2 flex-wrap">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#filtersBillModal" id="filtersBillModalOpen">Filters</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBillModal" id="addBillModalOpen">New</button>
+    </div>
+  </header>
+
+  <div class="w-100 overflow-auto">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>BILL CODE</th>
+          <th>STATUS</th>
+          <th>BILL TYPE</th>
+          <th>ROOM</th>
+          <th>START PERIOD</th>
+          <th>END PERIOD</th>
+          <th>DUE DATE</th>
+          <th>AMOUNT DUE (PHP)</th>
+          <th>REMAINING BALANCE (PHP)</th>
+          <th>NOTES</th>
+          <th>LAST MODIFIED</th>
+          <th>DATE CREATED</th>
+        </tr>
+      </thead>
+      <tbody id="tableBills">
+        <tr>
+          <td colspan="12">Please wait...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center gap-2 flex-column">
+    <aside class="d-flex align-items-center justify-content-between gap-2 flex-wrap w-100">
+      <p class="mb-0" id="showingEntriesBills">Showing 1-10 of 0 entries</p>
+      <p class="mb-0" id="pageBills">Page 1 of 1</p>
+    </aside>
+    <aside class="w-100 d-flex align-items-center justify-content-center gap-2 flex-wrap">
+      <button type="button" id="prevPageBills" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Prev Page</span>
+      </button>
+      <button type="button" id="nextPageBills" class="btn btn-outline-secondary">
+        <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+        <span role="status" class="status">Next Page</span>
+      </button>
+    </aside>
+  </div>
+</section>
+
+<!-- Add Modal  -->
+<div class="modal fade" id="addBillModal" tabindex="-1" aria-labelledby="addBillModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addBillModalLabel">New Bill</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="addBillModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="addBillModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Filters  -->
+<div class="modal fade" id="filtersBillModal" tabindex="-1" aria-labelledby="filtersBillModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="filtersBillModalLabel">Filters</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="filtersBillModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="filtersBillModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="filtersBillModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersBillModalStatus[]" id="filtersBillModalStatusAll"><label for="filtersBillModalStatusAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Unpaid" class="form-check-input" name="filtersBillModalStatus[]" id="filtersBillModalStatusUnpaid"><label for="filtersBillModalStatusUnpaid" class="form-label">Unpaid</label>
+              </div>
+              <div>
+                <input type="radio" value="Paid" class="form-check-input" name="filtersBillModalStatus[]" id="filtersBillModalStatusPaid"><label for="filtersBillModalStatusPaid" class="form-label">Paid</label>
+              </div>
+              <div>
+                <input type="radio" value="Overdue" class="form-check-input" name="filtersBillModalStatus[]" id="filtersBillModalStatusOverdue"><label for="filtersBillModalStatusOverdue" class="form-label">Overdue</label>
+              </div>
+              <div>
+                <input type="radio" value="Partially" class="form-check-input" name="filtersBillModalStatus[]" id="filtersBillModalStatusPartially"><label for="filtersBillModalStatusPartially" class="form-label">Partially</label>
+              </div>
+              <div>
+                <input type="radio" value="Unbilled" class="form-check-input" name="filtersBillModalStatus[]" id="filtersBillModalStatusUnbilled"><label for="filtersBillModalStatusUnbilled" class="form-label">Unbilled</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sort by Date Created</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Ascending" class="form-check-input" name="filtersBillModalSort[]" id="filtersBillModalSortAscending"><label for="filtersBillModalSortAscending" class="form-label">Ascending</label>
+              </div>
+              <div>
+                <input type="radio" value="Descending" class="form-check-input" name="filtersBillModalSort[]" id="filtersBillModalSortDescending"><label for="filtersBillModalSortDescending" class="form-label">Descending</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Bill Type</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersBillModalBillType[]" id="filtersBillModalBillTypeAll"><label for="filtersBillModalBillTypeAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Electric" class="form-check-input" name="filtersBillModalBillType[]" id="filtersBillModalBillTypeElectric"><label for="filtersBillModalBillTypeElectric" class="form-label">Electric</label>
+              </div>
+              <div>
+                <input type="radio" value="Water" class="form-check-input" name="filtersBillModalBillType[]" id="filtersBillModalBillTypeWater"><label for="filtersBillModalBillTypeWater" class="form-label">Water</label>
+              </div>
+            </div>
+          </div> 
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Search (Bill Code)</label>
+            <input type="search" placeholder="Search" class="form-control" maxlength="50" id="filtersBillModalSearch">
+          </div>
+          
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="filtersBillModalApply">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status" class="status">Apply</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Edit Modal  -->
+<div class="modal fade" id="viewEditBillModal" tabindex="-1" aria-labelledby="viewEditBillModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewEditBillModalLabel">View/Edit Bill</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="viewEditBillModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="viewEditBillModalBody"></div>
+    </div>
+  </div>
+</div>

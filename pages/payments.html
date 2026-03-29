@@ -1,0 +1,197 @@
+<section>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <button type="button" disabled class="nav-link active" aria-current="page" id="viewEditPaymentModalNavLinkRent">Rent</button>
+    </li>
+    <li class="nav-item">
+      <button type="button" class="nav-link" id="viewEditPaymentModalNavLinkBill">Bill</button>
+    </li>
+  </ul>
+  <div id="paymentsContentDisplay"></div>
+</section>
+
+<!-- Filters payment rent Modal -->
+<div class="modal fade" id="filtersPaymentRentModal" tabindex="-1" aria-labelledby="filtersPaymentRentModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="filtersPaymentRentModalLabel">Filters</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="filtersPaymentRentModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="filtersPaymentRentModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="filtersPaymentRentModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersPaymentRentModalStatus[]" id="filtersPaymentRentModalStatusAll"><label for="filtersPaymentRentModalStatusAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Unpaid" class="form-check-input" name="filtersPaymentRentModalStatus[]" id="filtersPaymentRentModalStatusUnpaid"><label for="filtersPaymentRentModalStatusUnpaid" class="form-label">Unpaid</label>
+              </div>
+              <div>
+                <input type="radio" value="Partially" class="form-check-input" name="filtersPaymentRentModalStatus[]" id="filtersPaymentRentModalStatusPartially"><label for="filtersPaymentRentModalStatusPartially" class="form-label">Partially</label>
+              </div>
+              <div>
+                <input type="radio" value="Paid" class="form-check-input" name="filtersPaymentRentModalStatus[]" id="filtersPaymentRentModalStatusPaid"><label for="filtersPaymentRentModalStatusPaid" class="form-label">Paid</label>
+              </div>
+              <div>
+                <input type="radio" value="Overdue" class="form-check-input" name="filtersPaymentRentModalStatus[]" id="filtersPaymentRentModalStatusOverdue"><label for="filtersPaymentRentModalStatusOverdue" class="form-label">Overdue</label>
+              </div>
+              <div>
+                <input type="radio" value="Unbilled" class="form-check-input" name="filtersPaymentRentModalStatus[]" id="filtersPaymentRentModalStatusUnbilled"><label for="filtersPaymentRentModalStatusUnbilled" class="form-label">Unbilled</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sort By Date Created</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Ascending" class="form-check-input" name="filtersPaymentRentModalSort[]" id="filtersPaymentRentModalSortAscending"><label for="filtersPaymentRentModalSortAscending" class="form-label">Ascending</label>
+              </div>
+              <div>
+                <input type="radio" value="Descending" class="form-check-input" name="filtersPaymentRentModalSort[]" id="filtersPaymentRentModalSortDescending"><label for="filtersPaymentRentModalSortDescending" class="form-label">Descending</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Payment Method</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersPaymentRentModalPaymentMethod[]" id="filtersPaymentRentModalPaymentMethodAll"><label for="filtersPaymentRentModalPaymentMethodAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Cash" class="form-check-input" name="filtersPaymentRentModalPaymentMethod[]" id="filtersPaymentRentModalPaymentMethodCash"><label for="filtersPaymentRentModalPaymentMethodCash" class="form-label">Cash</label>
+              </div>
+              <div>
+                <input type="radio" value="E-Wallet" class="form-check-input" name="filtersPaymentRentModalPaymentMethod[]" id="filtersPaymentRentModalPaymentMethodEWallet"><label for="filtersPaymentRentModalPaymentMethodEWallet" class="form-label">E-Wallet</label>
+              </div>
+              <div>
+                <input type="radio" value="Other" class="form-check-input" name="filtersPaymentRentModalPaymentMethod[]" id="filtersPaymentRentModalPaymentMethodOthers"><label for="filtersPaymentRentModalPaymentMethodOthers" class="form-label">Other</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Search (Payment Code)</label>
+            <input type="search" placeholder="Search" class="form-control" id="filtersPaymentRentModalSearch">
+          </div>
+          
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="filtersPaymentRentModalApply">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status">Apply</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Filters payment bill Modal -->
+<div class="modal fade" id="filtersPaymentBillModal" tabindex="-1" aria-labelledby="filtersPaymentBillModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="filtersPaymentBillModalLabel">Filters</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="filtersPaymentBillModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="filtersPaymentBillModalBody">
+
+        <form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="filtersPaymentBillModalForm">
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Status</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersPaymentBillModalStatus[]" id="filtersPaymentBillModalStatusAll"><label for="filtersPaymentBillModalStatusAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Unpaid" class="form-check-input" name="filtersPaymentBillModalStatus[]" id="filtersPaymentBillModalStatusUnpaid"><label for="filtersPaymentBillModalStatusUnpaid" class="form-label">Unpaid</label>
+              </div>
+              <div>
+                <input type="radio" value="Partially" class="form-check-input" name="filtersPaymentBillModalStatus[]" id="filtersPaymentBillModalStatusPartially"><label for="filtersPaymentBillModalStatusPartially" class="form-label">Partially</label>
+              </div>
+              <div>
+                <input type="radio" value="Paid" class="form-check-input" name="filtersPaymentBillModalStatus[]" id="filtersPaymentBillModalStatusPaid"><label for="filtersPaymentBillModalStatusPaid" class="form-label">Paid</label>
+              </div>
+              <div>
+                <input type="radio" value="Overdue" class="form-check-input" name="filtersPaymentBillModalStatus[]" id="filtersPaymentBillModalStatusOverdue"><label for="filtersPaymentBillModalStatusOverdue" class="form-label">Overdue</label>
+              </div>
+              <div>
+                <input type="radio" value="Unbilled" class="form-check-input" name="filtersPaymentBillModalStatus[]" id="filtersPaymentBillModalStatusUnbilled"><label for="filtersPaymentBillModalStatusUnbilled" class="form-label">Unbilled</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Sort By Date Created</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="Ascending" class="form-check-input" name="filtersPaymentBillModalSort[]" id="filtersPaymentBillModalSortAscending"><label for="filtersPaymentBillModalSortAscending" class="form-label">Ascending</label>
+              </div>
+              <div>
+                <input type="radio" value="Descending" class="form-check-input" name="filtersPaymentBillModalSort[]" id="filtersPaymentBillModalSortDescending"><label for="filtersPaymentBillModalSortDescending" class="form-label">Descending</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Payment Method</label>
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <div>
+                <input type="radio" checked value="" class="form-check-input" name="filtersPaymentBillModalPaymentMethod[]" id="filtersPaymentBillModalPaymentMethodAll"><label for="filtersPaymentBillModalPaymentMethodAll" class="form-label">All</label>
+              </div>
+              <div>
+                <input type="radio" value="Cash" class="form-check-input" name="filtersPaymentBillModalPaymentMethod[]" id="filtersPaymentBillModalPaymentMethodCash"><label for="filtersPaymentBillModalPaymentMethodCash" class="form-label">Cash</label>
+              </div>
+              <div>
+                <input type="radio" value="E-Wallet" class="form-check-input" name="filtersPaymentBillModalPaymentMethod[]" id="filtersPaymentBillModalPaymentMethodEWallet"><label for="filtersPaymentBillModalPaymentMethodEWallet" class="form-label">E-Wallet</label>
+              </div>
+              <div>
+                <input type="radio" value="Other" class="form-check-input" name="filtersPaymentBillModalPaymentMethod[]" id="filtersPaymentBillModalPaymentMethodOthers"><label for="filtersPaymentBillModalPaymentMethodOthers" class="form-label">Other</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <label class="form-label text-uppercase fw-semibold">Search (Payment Code)</label>
+            <input type="search" placeholder="Search" class="form-control" id="filtersPaymentBillModalSearch">
+          </div>
+          
+          <div class="w-100">
+            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="filtersPaymentBillModalApply">
+              <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+              <span role="status">Apply</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Edit payment rent Modal  -->
+<div class="modal fade" id="viewEditPaymentRentModal" tabindex="-1" aria-labelledby="viewEditPaymentRentModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewEditPaymentRentModalLabel">View/Edit Payment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="viewEditPaymentRentModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="viewEditPaymentRentModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- View Edit payment bill Modal  -->
+<div class="modal fade" id="viewEditPaymentBillModal" tabindex="-1" aria-labelledby="viewEditPaymentBillModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-m modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewEditPaymentBillModalLabel">View/Edit Payment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="viewEditPaymentBillModalButtonClose"></button>
+      </div>
+      <div class="modal-body" id="viewEditPaymentBillModalBody"></div>
+    </div>
+  </div>
+</div>
+

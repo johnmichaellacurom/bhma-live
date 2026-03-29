@@ -1,0 +1,72 @@
+<form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="viewEditRoomModalForm">
+  <!-- <div class="w-100 d-flex align-items-start justify-content-start gap-2 flex-nowrap overflow-auto">
+    <div class="w-100">
+      <div class="w-100">
+        <a href="#rents" data-room-id="" class="text-decoration-none btn btn-outline-primary w-100" id="viewEditRoomModalViewRents">View Rents</a>
+      </div>
+    </div>
+    <div class="w-100">
+      <div class="w-100">
+        <a href="#bills" data-room-id="" class="text-decoration-none btn btn-outline-primary w-100" id="viewEditRoomModalViewBills">View Bills</a>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Status</label>
+    <div class="d-flex align-items-center justify-content-start gap-2">
+      <div>
+        <input type="radio" checked value="Active" class="form-check-input" name="viewEditRoomModalStatus[]" id="viewEditRoomModalStatusActive"><label for="viewEditRoomModalStatusActive" class="form-label">Active</label>
+      </div>
+      <div>
+        <input type="radio" value="Inactive" class="form-check-input" name="viewEditRoomModalStatus[]" id="viewEditRoomModalStatusInactive"><label for="viewEditRoomModalStatusInactive" class="form-label">Inactive</label>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Room Name</label>
+    <input type="text" class="form-control" required id="viewEditRoomModalRoomName" maxlength="50">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Total Lower Beds</label>
+    <div class="d-flex align-items-center justify-content-center gap-2">
+      <button type="button" class="btn btn-outline-secondary" id="viewEditRoomModalTotalLowerBedsMinus"><span class="fw-bold">&minus;</span></button>
+      <input type="number" class="form-control" readonly value="0" id="viewEditRoomModalTotalLowerBeds">
+      <button type="button" class="btn btn-outline-secondary" id="viewEditRoomModalTotalLowerBedsPlus"><span class="fw-bold">&plus;</span></button>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Lower Beds Left</label>
+    <input type="text" class="form-control" value="2" disabled id="viewEditRoomModalLowerBedsLeft">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Total Upper Beds</label>
+    <div class="d-flex align-items-center justify-content-center gap-2">
+      <button type="button" class="btn btn-outline-secondary" id="viewEditRoomModalTotalUpperBedsMinus"><span class="fw-bold">&minus;</span></button>
+      <input type="number" class="form-control" readonly value="0" id="viewEditRoomModalTotalUpperBeds">
+      <button type="button" class="btn btn-outline-secondary" id="viewEditRoomModalTotalUpperBedsPlus"><span class="fw-bold">&plus;</span></button>
+    </div>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Upper Beds Left</label>
+    <input type="text" class="form-control" value="2" disabled id="viewEditRoomModalUpperBedsLeft">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+    <textarea class="form-control" id="viewEditRoomModalNotes" maxlength="500"></textarea>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Last Modified</label>
+    <input type="text" class="form-control" disabled id="viewEditRoomModalLastModified">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Date Created</label>
+    <input type="text" class="form-control" disabled id="viewEditRoomModalDateCreated">
+  </div>
+  <div class="w-100">
+    <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap" type="submit" id="updateRoomModalButton">
+      <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+      <span role="status" class="status">Update</span>
+    </button>
+  </div>
+</form>

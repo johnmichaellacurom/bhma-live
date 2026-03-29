@@ -1,0 +1,13 @@
+{
+  "name": "BH Mobile App | John Michael Lacurom",
+  "short_name": "App",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "assets/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

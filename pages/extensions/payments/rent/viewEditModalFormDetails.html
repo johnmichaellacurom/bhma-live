@@ -1,0 +1,102 @@
+ <!-- Details  -->
+<form class="d-flex align-items-center justify-content-start gap-2 flex-column" autocomplete="off" id="viewEditPaymentRentModalForm">
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Rent Code</label>
+    <a href="#rents" class="btn btn-outline-secondary w-100" id="viewEditPaymentRentModalRentCode">Please wait...</a>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Boarder Name</label>
+    <a href="#boarders" class="btn btn-outline-secondary w-100" id="viewEditPaymentRentModalBoarderName">Please wait...</a>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Payment Code</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalPaymentCode">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Status</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalStatus">
+  </div>  
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Start Period</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalStartPeriod">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">End Period</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalEndPeriod">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Due Date</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalDueDate">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Amount Due (PHP)</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalAmountDue">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Discount (PHP)</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalDiscount">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Late Fee (PHP)</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalLateFee">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Total Amount Due (PHP)</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalTotalAmountDue">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Payment Date/Time (if paid)</label>
+    <input type="datetime-local" class="form-control" id="viewEditPaymentRentModalPaymentDateTime">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Payment Method (if paid)</label>
+    <select class="form-select" id="viewEditPaymentRentModalPaymentMethod">
+      <option value="">Choose payment method...</option>
+      <option value="Cash">Cash</option>
+      <option value="E-Wallet">E-Wallet</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Notes (optional)</label>
+    <textarea class="form-control" id="viewEditPaymentRentModalNotes"></textarea>
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Last Modified</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalLastModified">
+  </div>
+  <div class="w-100">
+    <label class="form-label text-uppercase fw-semibold">Date Created</label>
+    <input type="text" class="form-control" disabled id="viewEditPaymentRentModalDateCreated">
+  </div>
+  <div class="w-100 d-flex align-items-center justify-content-between gap-2 flex-wrap">
+    <div class="alert alert-warning" role="alert">
+      <p class="mb-1">
+        <span class="fw-bold">Please read: </span>If the status is set to 'Unbilled', 'Overdue', or 'Paid' the field will be disabled and can no longer be updated.
+      </p>
+      <p class="mb-0">
+        <span class="fw-bold">Note: </span>Once set to Unbilled, the rent status will change to On Break. After it is marked as paid, the next payment will be generated.
+      </p>
+    </div>
+    <div class="d-flex items-center justify-content-between gap-2 flex-wrap w-100">
+      <div class="d-flex align-items-center justify-content-start gap-2 w-100">
+        <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2 flex-nowrap d-none view-edit-payment-rent-modal-status" id="viewEditPaymentRentModalUnbilled" type="button" data-status="Unbilled">
+          <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+          <span role="status">Set as Unbill</span>
+        </button>
+        <button class="btn btn-info d-flex align-items-center justify-content-center gap-2 flex-nowrap d-none view-edit-payment-rent-modal-status" id="viewEditPaymentRentModalPartially" type="button" data-status="Partially">
+          <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+          <span role="status">Set as Partially</span>
+        </button>
+        <button class="btn btn-success d-flex align-items-center justify-content-center gap-2 flex-nowrap d-none view-edit-payment-rent-modal-status" id="viewEditPaymentRentModalPaid" type="button" data-status="Paid">
+          <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+          <span role="status">Mark as Paid</span>
+        </button>
+      </div>
+      <div class="d-flex align-items-center justify-content-end gap-1 flex-wrap w-100" id="viewEditPaymentRentModalNextPaymentDueDiv">
+        <p class="mb-0 fw-bold opacity-80">Next Payment Due :</p>
+        <p class="mb-0" id="viewEditPaymentRentModalNextPaymentDue">Mar 21, 2026</p>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,261 @@
+<section>
+
+  <header class="d-flex align-items-center justify-content-between gap-2 flex-wrap py-2">
+    <h1 class="mb-0" style="cursor: pointer;" id="dashboardContentRefresh">
+      <div class="d-flex align-items-center justify-content-start gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>
+        </svg>Dashboard
+      </div>
+    </h1>
+
+    <!-- Comeback here  -->
+    <a href="#reminders" class="d-none text-decoration-none btn btn-primary d-flex align-items-center justify-content-center position-relative" id="remindersLink">
+      <img src="assets/svg/bell.svg" alt="bell" width="25" height="25" class="bg-white p-1 rounded-circle border">
+      <div class="bg-danger d-flex align-items-center justify-content-center position-absolute bottom-50 end-0 rounded">
+        <p class="mb-0 badge">4</p>
+      </div>
+    </a>
+  </header>
+
+  <div class="d-flex align-items-center justify-content-center gap-2 flex-column">
+    <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap w-100">
+      <aside>
+        <p class="mb-0 text-uppercase">
+          <span class="fw-bold">Date & Time:</span> 
+          <span id="dashboardDate">Please wait...</span>
+        </p>
+      </aside>
+    </div>
+
+    <!-- Revenue  -->
+    <div id="dashboardRevenueDiv" class="d-none shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded d-flex align-items-center justify-content-between gap-2 flex-wrap form-control-sm">
+        <h4 class="mb-0">Revenue</h4>
+        <div class="w-50">
+          <input type="date" class="form-control" value="2026-02-01">
+        </div>
+      </aside>
+      <aside class="w-100">
+        <h4 class="mb-0 text-center">As of<br>25, October, 2025</h4>
+        <hr>
+      </aside>
+      <aside class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap">
+        <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+          <h4 class="mb-0 text-center" style="word-break:break-word;">1,000.00</h4>
+          <p class="mb-0 text-uppercase text-center">Day (PHP)</p>
+        </div>
+        <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+          <h4 class="mb-0 text-center" style="word-break:break-word;">1,000.00</h4>
+          <p class="mb-0 text-uppercase text-center">Month (PHP)</p>
+        </div>
+        <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+          <h4 class="mb-0 text-center" style="word-break:break-word;">1,000.00</h4>
+          <p class="mb-0 text-uppercase text-center">Year (PHP)</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Rents  -->
+    <div id="dashboardRentsDiv" class="d-none shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded">
+        <h4 class="mb-0">Rents</h4>
+      </aside>
+      <aside class="w-100 d-flex align-items-center justify-content-between flex-column gap-3" id="dashboardRents">
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+        </div>
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Bills  -->
+    <div id="dashboardBillsDiv" class="d-none shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded">
+        <h4 class="mb-0">Bills</h4>
+      </aside>
+      <aside class="w-100 d-flex align-items-center justify-content-between flex-column gap-3" id="dashboardBills">
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>        
+        </div>
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>        
+        </div>
+      </aside>      
+    </div>
+
+    <!-- Payments  -->
+    <div id="dashboardPaymentsDiv" class="d-none shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded">
+        <h4 class="mb-0">Payments</h4>
+      </aside>
+      <aside class="w-100 d-flex align-items-center justify-content-between flex-column gap-3" id="dashboardPayments">
+        <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+          <div class="w-100 border"></div>
+            <p class="mb-0" style="white-space:nowrap">Rents</p>
+          <div class="w-100 border"></div>
+        </div>
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>        
+        </div>
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>        
+        </div>     
+        <div class="d-flex align-items-center justify-content-center gap-2 w-100 mt-3">
+          <div class="w-100 border"></div>
+            <p class="mb-0" style="white-space:nowrap">Bills</p>
+          <div class="w-100 border"></div>
+        </div>
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>        
+        </div>
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>        
+        </div>    
+      </aside>
+    </div>
+    
+    <!-- Belongings  -->
+    <div id="dashboardBelongingssDiv" class="d-none shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded">
+        <h4 class="mb-0">Belongings</h4>
+      </aside>
+      <aside class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap" id="dashboardBelongings">
+        <div class="d-flex align-items-center justify-content-center flex-column gap-1 placeholder-glow">
+          <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+          <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+        </div>
+        <div class="d-flex align-items-center justify-content-center flex-column gap-1 placeholder-glow">
+          <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+          <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+        </div>        
+      </aside>
+    </div>
+
+    <!-- Boarders  -->
+    <div id="dashboardBoardersDiv" class="d-none shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded">
+        <h4 class="mb-0">Boarders</h4>
+      </aside>
+      <aside class="w-100 d-flex align-items-center justify-content-between flex-column gap-3 flex-wrap" id="dashboardBoarders">
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+        </div>
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+        </div>
+        <div class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap placeholder-glow">
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-column gap-1">
+            <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+            <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+     <!-- Rooms   -->
+    <div id="dashboardRoomsDiv" class="d-none shadow border p-3 rounded w-100 d-flex align-items-center justify-content-between flex-column gap-3">
+      <aside class="bg-primary-subtle w-100 p-3 rounded">
+        <h4 class="mb-0">Rooms</h4>
+      </aside>
+      <aside class="d-flex align-items-end justify-content-around gap-2 w-100 flex-wrap" id="dashboardRooms">
+        <div class="d-flex align-items-center justify-content-center flex-column gap-1 placeholder-glow">
+          <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+          <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+        </div>
+        <div class="d-flex align-items-center justify-content-center flex-column gap-1 placeholder-glow">
+          <h4 class="mb-0 text-center placeholder rounded" style="width: 100px;"></h4>
+          <p class="mb-0 text-uppercase text-center placeholder rounded" style="width: 60px;"></p>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</section>
